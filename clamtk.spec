@@ -1,5 +1,5 @@
 Summary:	Easy to use front-end for ClamAV
-Summary(pl):	Prosty w u¿yciu interface dla ClamAV
+Summary(pl):	Prosty w u¿yciu interfejs do ClamAVa
 Name:		clamtk
 Version:	2.15
 Release:	1
@@ -27,20 +27,17 @@ antyvirusowy ClamAV.
 
 %prep
 %setup -q
-sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Application;Utility;#' clamtk.desktop
-echo 'Comment[pl]=Skaner antyvirusowy' >> clamtk.desktop
+sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Utility;#' clamtk.desktop
+echo 'Comment[pl]=Skaner antywirusowy' >> clamtk.desktop
 echo '# vi: encoding=utf-8' >> clamtk.desktop
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopdir},%{_datadir}/mime/packages}
 
-cp clamtk $RPM_BUILD_ROOT%{_bindir}
+install clamtk $RPM_BUILD_ROOT%{_bindir}
 install clamtk.xml $RPM_BUILD_ROOT%{_datadir}/mime/packages
-install clamtk.1.gz $RPM_BUILD_ROOT%{_mandir}/man1
+gzip -dc clamtk.1.gz >$RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
 install clam.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 install clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
@@ -49,8 +46,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/%{name}
 %doc CHANGES DISCLAIMER README clamtk.pl clamtk LICENSE
+%attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/clamtk.desktop
 %{_pixmapsdir}/clam.xpm
 %{_datadir}/mime/packages/%{name}.xml
