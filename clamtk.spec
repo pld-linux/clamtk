@@ -8,6 +8,7 @@ Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
 # Source0-md5:	543f6914c3b7a37b758b05728bb0a0c0
 URL:		http://clamtk.sourceforge.net/
+BuildRequires:	sed >= 4.0
 Requires:	clamav >= 0.87
 Requires:	clamav-database 
 Requires:	clamav-libs 
