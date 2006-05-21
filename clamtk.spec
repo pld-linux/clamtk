@@ -5,7 +5,7 @@ Version:	2.19
 Release:	1
 License:	Artistic
 Group:		Applications
-Source0:	http://heanet.dl.sourceforge.net/sourceforge/clamtk/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
 # Source0-md5:	21401e5bf7d06c039fca28817f0d3208
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	sed >= 4.0
