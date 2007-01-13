@@ -1,12 +1,12 @@
 Summary:	Easy to use front-end for ClamAV
 Summary(pl):	Prosty w u¿yciu interfejs do ClamAVa
 Name:		clamtk
-Version:	2.26
+Version:	2.27
 Release:	1
 License:	Artistic
 Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
-# Source0-md5:	062ee416c95a5a4271a8a3590a596f72
+# Source0-md5:	2b5659fcf0b08a3c7037c59d7972fad8
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	sed >= 4.0
 Requires:	clamav >= 0.87
@@ -38,7 +38,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/locale/{da,de,fr,it,pt_BR,ru,zh_CN}/LC_MES
 
 install clamtk $RPM_BUILD_ROOT%{_bindir}
 gzip -dc clamtk.1.gz >$RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
-install clam.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
+install clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
 install clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 for n in po/*.mo ; do
@@ -54,5 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc CHANGES DISCLAIMER README clamtk LICENSE
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/clamtk.desktop
-%{_pixmapsdir}/clam.xpm
+%{_pixmapsdir}/clamtk.png
 %{_mandir}/man1/%{name}.1*
