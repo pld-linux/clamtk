@@ -1,5 +1,5 @@
 Summary:	Easy to use front-end for ClamAV
-Summary(pl.UTF-8):   Prosty w użyciu interfejs do ClamAVa
+Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
 Version:	2.27
 Release:	1
