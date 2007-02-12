@@ -1,5 +1,5 @@
 Summary:	Easy to use front-end for ClamAV
-Summary(pl):	Prosty w u¿yciu interfejs do ClamAVa
+Summary(pl.UTF-8):   Prosty w uÅ¼yciu interfejs do ClamAVa
 Name:		clamtk
 Version:	2.27
 Release:	1
@@ -22,8 +22,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ClamTk is a frontend for ClamAV antivirus. It is meant to be
 lightweight and easy to use.
 
-%description -l pl
-ClamTk jest ma³± i prost± w u¿yciu nak³adk± graficzn± na program
+%description -l pl.UTF-8
+ClamTk jest maÅ‚Ä… i prostÄ… w uÅ¼yciu nakÅ‚adkÄ… graficznÄ… na program
 antyvirusowy ClamAV.
 
 %prep
