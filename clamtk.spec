@@ -2,7 +2,7 @@ Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
 Version:	2.30
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
@@ -30,11 +30,11 @@ antyvirusowy ClamAV.
 %setup -q
 sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Utility;#' clamtk.desktop
 echo '# vi: encoding=utf-8' >> clamtk.desktop
+mv po/cs{_CZ,}.mo
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopdir},%{_datadir}/mime/packages}
-install -d $RPM_BUILD_ROOT%{_datadir}/locale/{da,de,fr,it,pt_BR,ru,zh_CN}/LC_MESSAGES
 
 install clamtk $RPM_BUILD_ROOT%{_bindir}
 gzip -dc clamtk.1.gz >$RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
