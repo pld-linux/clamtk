@@ -1,12 +1,12 @@
 Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
-Version:	2.30
-Release:	2
+Version:	2.31
+Release:	1
 License:	Artistic
 Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
-# Source0-md5:	8d0bad3800547477ede2e7d5bd3297e3
+# Source0-md5:	6fa773079b372909624fb5fde3690405
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	sed >= 4.0
 Requires:	clamav >= 0.87
