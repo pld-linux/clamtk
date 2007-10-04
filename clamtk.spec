@@ -2,7 +2,7 @@ Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
 Version:	2.31
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
@@ -15,6 +15,7 @@ Requires:	clamav-libs
 Requires:	perl-Date-Calc
 Requires:	perl-File-Find-Rule
 Requires:	perl-Gtk2
+Requires:       perl-Locale-gettext
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
