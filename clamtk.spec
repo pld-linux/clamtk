@@ -15,7 +15,7 @@ Requires:	clamav-libs
 Requires:	perl-Date-Calc
 Requires:	perl-File-Find-Rule
 Requires:	perl-Gtk2
-Requires:       perl-Locale-gettext
+Requires:	perl-Locale-gettext
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
