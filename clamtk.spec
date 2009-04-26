@@ -1,12 +1,12 @@
 Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
-Version:	2.31
-Release:	2
+Version:	4.12
+Release:	1
 License:	Artistic
 Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
-# Source0-md5:	6fa773079b372909624fb5fde3690405
+# Source0-md5:	39d049ac4cd277ea79c288c8943beb8f
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	sed >= 4.0
 Requires:	clamav >= 0.87
@@ -35,12 +35,13 @@ mv po/cs{_CZ,}.mo
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopdir},%{_datadir}/mime/packages}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopdir},%{_datadir}/mime/packages,%{perl_vendorlib}/ClamTk}
 
 install clamtk $RPM_BUILD_ROOT%{_bindir}
 gzip -dc clamtk.1.gz >$RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
 install clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
 install clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
+install lib/*.pm $RPM_BUILD_ROOT%{perl_vendorlib}/ClamTk
 
 for n in po/*.mo ; do
     install -D $n $RPM_BUILD_ROOT%{_datadir}/locale/`basename $n .mo`/LC_MESSAGES/clamtk.mo
@@ -57,3 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/clamtk.desktop
 %{_pixmapsdir}/clamtk.png
 %{_mandir}/man1/%{name}.1*
+%{perl_vendorlib}/ClamTk
