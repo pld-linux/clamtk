@@ -1,12 +1,12 @@
 Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
-Version:	4.15
+Version:	4.23
 Release:	1
 License:	Artistic
 Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
-# Source0-md5:	65a2b517435bfe44a31e683c59059783
+# Source0-md5:	171da131291891218d75adc849c818af
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	sed >= 4.0
 Requires:	clamav >= 0.87
@@ -16,6 +16,8 @@ Requires:	perl-Date-Calc
 Requires:	perl-File-Find-Rule
 Requires:	perl-Gtk2
 Requires:	perl-Locale-gettext
+Requires:	perl-Net-DNS
+Requires:	perl-Config-Tiny
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -31,7 +33,7 @@ antyvirusowy ClamAV.
 %setup -q
 sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Utility;#' clamtk.desktop
 echo '# vi: encoding=utf-8' >> clamtk.desktop
-mv po/cs{_CZ,}.mo
+#mv po/cs{_CZ,}.mo
 
 %install
 rm -rf $RPM_BUILD_ROOT
