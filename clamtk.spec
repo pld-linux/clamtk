@@ -8,16 +8,17 @@ Group:		Applications
 Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
 # Source0-md5:	171da131291891218d75adc849c818af
 URL:		http://clamtk.sourceforge.net/
+BuildRequires:	perl-base
 BuildRequires:	sed >= 4.0
 Requires:	clamav >= 0.87
 Requires:	clamav-database
 Requires:	clamav-libs
+Requires:	perl-Config-Tiny
 Requires:	perl-Date-Calc
 Requires:	perl-File-Find-Rule
 Requires:	perl-Gtk2
 Requires:	perl-Locale-gettext
 Requires:	perl-Net-DNS
-Requires:	perl-Config-Tiny
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,7 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopdir},%{_datadir}/mime/packages,%{perl_vendorlib}/ClamTk}
 
 install clamtk $RPM_BUILD_ROOT%{_bindir}
-gzip -dc clamtk.1.gz >$RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
+gzip -dc clamtk.1.gz > $RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
 install clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
 install clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install lib/*.pm $RPM_BUILD_ROOT%{perl_vendorlib}/ClamTk
