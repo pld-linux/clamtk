@@ -5,7 +5,7 @@ Version:	4.23
 Release:	1
 License:	Artistic
 Group:		Applications
-Source0:	http://dl.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
 # Source0-md5:	171da131291891218d75adc849c818af
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	perl-base
@@ -35,19 +35,21 @@ antyvirusowy ClamAV.
 sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Utility;#' clamtk.desktop
 echo '# vi: encoding=utf-8' >> clamtk.desktop
 #mv po/cs{_CZ,}.mo
+gzip -d clamtk.1.gz
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopdir},%{_datadir}/mime/packages,%{perl_vendorlib}/ClamTk}
 
-install clamtk $RPM_BUILD_ROOT%{_bindir}
-gzip -dc clamtk.1.gz > $RPM_BUILD_ROOT%{_mandir}/man1/clamtk.1
-install clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
-install lib/*.pm $RPM_BUILD_ROOT%{perl_vendorlib}/ClamTk
+install -p clamtk $RPM_BUILD_ROOT%{_bindir}
+cp -a clamtk.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -a clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -a clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -a lib/*.pm $RPM_BUILD_ROOT%{perl_vendorlib}/ClamTk
 
-for n in po/*.mo ; do
-    install -D $n $RPM_BUILD_ROOT%{_datadir}/locale/`basename $n .mo`/LC_MESSAGES/clamtk.mo
+for n in po/*.mo; do
+	l=$(basename $n .mo)
+	install -Dp $n $RPM_BUILD_ROOT%{_datadir}/locale/$l/LC_MESSAGES/clamtk.mo
 done
 %find_lang %{name}
 
