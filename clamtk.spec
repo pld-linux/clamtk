@@ -2,7 +2,7 @@ Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
 Version:	4.23
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
@@ -34,7 +34,7 @@ antyvirusowy ClamAV.
 %setup -q
 sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Utility;#' clamtk.desktop
 echo '# vi: encoding=utf-8' >> clamtk.desktop
-#mv po/cs{_CZ,}.mo
+mv po/el{_GR,}.mo
 gzip -d clamtk.1.gz
 
 %install
