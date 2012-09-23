@@ -1,12 +1,12 @@
 Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
-Version:	4.23
-Release:	2
+Version:	4.42
+Release:	1
 License:	Artistic
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
-# Source0-md5:	171da131291891218d75adc849c818af
+# Source0-md5:	4e081ae10dffa100de3b44fcf0ebfa9e
 URL:		http://clamtk.sourceforge.net/
 BuildRequires:	perl-base
 BuildRequires:	sed >= 4.0
@@ -32,7 +32,7 @@ antyvirusowy ClamAV.
 
 %prep
 %setup -q
-sed -i -e 's#Categories=Application;Utility;#Categories=GTK;Utility;#' clamtk.desktop
+sed -i -e 's#Categories=GTK;GNOME;Utility;#Categories=GTK;Utility;#' clamtk.desktop
 echo '# vi: encoding=utf-8' >> clamtk.desktop
 mv po/el{_GR,}.mo
 gzip -d clamtk.1.gz
@@ -43,7 +43,8 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_pixmapsdir},%{_mandir}/man1,%{_desktopd
 
 install -p clamtk $RPM_BUILD_ROOT%{_bindir}
 cp -a clamtk.1 $RPM_BUILD_ROOT%{_mandir}/man1
-cp -a clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -a images/clamtk.png $RPM_BUILD_ROOT%{_pixmapsdir}
+cp -a images/clamtk-loader.gif $RPM_BUILD_ROOT%{_pixmapsdir}
 cp -a clamtk.desktop $RPM_BUILD_ROOT%{_desktopdir}
 cp -a lib/*.pm $RPM_BUILD_ROOT%{perl_vendorlib}/ClamTk
 
@@ -58,9 +59,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGES DISCLAIMER README clamtk LICENSE
+%doc CHANGES DISCLAIMER README LICENSE
 %attr(755,root,root) %{_bindir}/%{name}
 %{_desktopdir}/clamtk.desktop
 %{_pixmapsdir}/clamtk.png
+%{_pixmapsdir}/clamtk-loader.gif
 %{_mandir}/man1/%{name}.1*
 %{perl_vendorlib}/ClamTk
