@@ -2,7 +2,7 @@ Summary:	Easy to use front-end for ClamAV
 Summary(pl.UTF-8):	Prosty w użyciu interfejs do ClamAVa
 Name:		clamtk
 Version:	4.42
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Applications
 Source0:	http://downloads.sourceforge.net/clamtk/%{name}-%{version}.tar.gz
